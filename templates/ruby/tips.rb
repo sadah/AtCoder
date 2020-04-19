@@ -10,7 +10,9 @@ H.times do |i|
       [ 0, -1], # 左
       [ 0,  1], # 右
     ].each do |di, dj|
-      if 0<=i+di && i+di<H && 0<=j+dj && j+dj<W
+      if di == 0 && dj == 0
+        # c[i][j] の処理
+      elsif 0 <= i + di && i + di < H && 0 <= j + dj && j + dj < W
         # c[i + di][j + dj] の処理
       else
         # 範囲外のときの処理
@@ -25,7 +27,7 @@ H.times do |i|
   W.times do |j|
     (-1..1).each do |di|
       (-1..1).each do |dj|
-        if di==0 && dj==0
+        if di == 0 && dj == 0
           # c[i][j] の処理
         elsif 0 <= i + di && i + di < H && 0 <= j + dj && j + dj < W
           # c[i + di][j + dj] の処理
