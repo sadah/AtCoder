@@ -1,4 +1,3 @@
-
 def solve(a, b, c, x)
   count = 0
   (0..a).each do |i|

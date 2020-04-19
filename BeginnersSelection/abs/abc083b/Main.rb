@@ -5,7 +5,6 @@ def solve(n, a, b)
   end.compact.inject(:+)
 end
 
-n = gets.strip
-array = gets.strip.split.map(&:to_i)
+n, a, b = gets.strip.split.map(&:to_i)
 
 puts solve(n, a, b)
