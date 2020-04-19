@@ -1,3 +1,5 @@
+require 'pp'
+
 # 入力値を文字列で返却する
 def gets_s()
   gets.chomp
@@ -41,4 +43,18 @@ def gets_n_iarray
     array.push(gets.chomp.to_i)
   end
   return n, array
+end
+
+# サイズが H, W の数値の2次元配列を返却する
+def gets_HW_int
+  h, w = gets.split.map(&:to_i)
+  board = h.times.map { gets.split.map(&:to_i) }
+  return h, w, board
+end
+
+# サイズが H, W の文字の2次元配列を返却する
+def gets_HW_char
+  h, w = gets.split.map(&:to_i)
+  board = h.times.map { gets.chomp.chars }
+  return h, w, board
 end
