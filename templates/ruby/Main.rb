@@ -1,5 +1,15 @@
 require 'pp'
 
+# 入力値を数値で返却する
+def gets_i()
+  gets.chomp.to_i
+end
+
+# 空白区切の入力値を数値の配列で返却する
+def gets_i_list()
+  gets.chomp.split(" ").map(&:to_i)
+end
+
 # 入力値を文字列で返却する
 def gets_s()
   gets.chomp
@@ -13,16 +23,6 @@ end
 # 空白区切の入力を文字列の配列で返す
 def get_s_list()
   gets.chomp.split(" ")
-end
-
-# 入力値を数値で返却する
-def gets_i()
-  gets.chomp.to_i
-end
-
-# 空白区切の入力値を数値の配列で返却する
-def gets_i_list()
-  gets.chomp.split(" ").map(&:to_i)
 end
 
 # 空白区切の入力を数値(実数)の配列で返却する
