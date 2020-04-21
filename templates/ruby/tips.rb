@@ -1,3 +1,9 @@
+
+# sumの追加
+class Array
+  define_method(:sum){self.inject(:+)} unless method_defined?(:sum)
+end
+
 # https://qiita.com/jkr_2255/items/3c9bc8273da818a39810
 # 組み合わせの総数
 # n個から、k個を取り出す場合の総数
