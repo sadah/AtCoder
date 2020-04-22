@@ -4,6 +4,13 @@ class Array
   define_method(:sum){self.inject(:+)} unless method_defined?(:sum)
 end
 
+# 最大公約数
+p 6.gcd(8) #=> 2
+# 最小公倍数
+p 6.lcm(8) #=> 24
+# 最大公約数と最小公倍数
+p 6.gcdlcm(8) #=> [2, 24]
+
 # https://qiita.com/jkr_2255/items/3c9bc8273da818a39810
 # 組み合わせの総数
 # n個から、k個を取り出す場合の総数
