@@ -1,0 +1,38 @@
+{
+  "contest": {
+    "id": "arc099",
+    "title": "AtCoder Regular Contest 099",
+    "url": "https://atcoder.jp/contests/arc099"
+  },
+  "tasks": [
+    {
+      "id": "arc099_a",
+      "label": "C",
+      "title": "Minimization",
+      "url": "https://atcoder.jp/contests/arc099/tasks/arc099_a",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
+    },
+    {
+      "id": "arc099_b",
+      "label": "D",
+      "title": "Snuke Numbers",
+      "url": "https://atcoder.jp/contests/arc099/tasks/arc099_b"
+    },
+    {
+      "id": "arc099_c",
+      "label": "E",
+      "title": "Independence",
+      "url": "https://atcoder.jp/contests/arc099/tasks/arc099_c"
+    },
+    {
+      "id": "arc099_d",
+      "label": "F",
+      "title": "Eating Symbols Hard",
+      "url": "https://atcoder.jp/contests/arc099/tasks/arc099_d"
+    }
+  ]
+}
