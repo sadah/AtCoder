@@ -4,6 +4,10 @@ class Array
   define_method(:sum){self.inject(:+)} unless method_defined?(:sum)
 end
 
+# 多次元配列の初期化
+N = 100
+dp = Array.new(N + 1).map{Array.new(3,0)}
+
 # 最大公約数
 p 6.gcd(8) #=> 2
 # 最小公倍数
