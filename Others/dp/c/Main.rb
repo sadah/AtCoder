@@ -10,56 +10,19 @@ def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
 
-# Nと空白区切の入力値を数値の配列で返却する
-def gets_n_and_i_list()
-  return gets.chomp.to_i, gets.chomp.split(" ").map(&:to_i)
+N =gets_i
+abc = []
+N.times do
+  abc.push(gets_i_list)
 end
 
-# 入力値を文字列で返却する
-def gets_s()
-  gets.chomp
+dp = Array.new(N + 1).map{Array.new(3,0)}
+(N).times do |n|
+  # A
+  dp[n + 1][0] = [dp[n][1], dp[n][2]].max + abc[n][0]
+  # B
+  dp[n + 1][1] = [dp[n][0], dp[n][2]].max + abc[n][1]
+  # C
+  dp[n + 1][2] = [dp[n][0], dp[n][1]].max + abc[n][2]
 end
-
-# 入力値を文字の配列で返却する
-def gets_nsp_list()
-  gets.chomp.split("")
-end
-
-# 空白区切の入力を文字列の配列で返す
-def get_s_list()
-  gets.chomp.split(" ")
-end
-
-# 空白区切の入力を数値(実数)の配列で返却する
-def gets_f_list()
-  gets.chomp.split(" ").map(&:to_f)
-end
-
-# Yes or Noを返却する
-def yes_no(bool, y = "Yes", n = "No")
-  bool ? y : n
-end
-
-# n件読み込んだ結果を数値の配列で返却する
-def gets_n_i_list
-  n = gets.chomp.to_i
-  array = []
-  n.times do
-    array.push(gets.chomp.to_i)
-  end
-  return n, array
-end
-
-# サイズが H, W の数値の2次元配列を返却する
-def gets_HW_int
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.split.map(&:to_i) }
-  return h, w, board
-end
-
-# サイズが H, W の文字の2次元配列を返却する
-def gets_HW_char
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.chomp.chars }
-  return h, w, board
-end
+puts dp.last.max
