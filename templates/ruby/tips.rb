@@ -8,6 +8,16 @@ end
 N = 100
 dp = Array.new(N + 1).map{Array.new(3,0)}
 
+def min(a, b)
+  a, b = a.to_i, b.to_i
+  return a < b ? a : b
+end
+
+def max(a, b)
+  a, b = a.to_i, b.to_i
+  return a > b ? a : b
+end
+
 # 最大公約数
 p 6.gcd(8) #=> 2
 # 最小公倍数
