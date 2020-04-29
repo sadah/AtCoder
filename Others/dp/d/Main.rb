@@ -5,34 +5,23 @@ def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
 
-def min(a,b)
-  a, b = a.to_i, b.to_i
-  return a < b ? a : b
-end
-
-def max(a,b)
-  a, b = a.to_i, b.to_i
-  return a > b ? a : b
-end
-
 N, W = gets_i_list
 wv_list = []
 N.times do
   wv_list.push gets_i_list
 end
 
-dp = Array.new(W)
-dp[0] = 0
+# 最大容量以下で、容量ごとの価値の最大値を格納する
+dp = Array.new(W + 1, 0)
 
 wv_list.each do |w, v|
-  next_dp = dp.dup
-  dp.each_with_index do |e, i|
-    if !e.nil? && i + w <= W
-      next_v = dp[i].to_i + v
-      next_dp[i + w] = max(dp[i + w].to_i, next_v)
+  # 許容できる容量(wからW)の範囲の価値を更新する
+  # uptoを使うと、ループで更新した値を参照してしまうため、downtoを使う
+  W.downto(w) do |i|
+    # 現在の値(dp[i])より、　itemを追加した場合の価値(dp[i - w] + v)が大きければ更新する
+    if dp[i] < dp[i - w] + v
+      dp[i] = dp[i - w] + v 
     end
   end
-  dp = next_dp
 end
-pp dp
-puts dp.compact.max
+puts dp.max
