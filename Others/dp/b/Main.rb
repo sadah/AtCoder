@@ -5,37 +5,25 @@ def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
 
+def min(a, b)
+  return a < b ? a : b
+end
+
 N, K = gets_i_list
 h_list = gets_i_list
 
-dp = Array.new(N, Float::INFINITY)
+INF = Float::INFINITY
+dp = Array.new(N, INF)
 dp[0] = 0
 
-(1...N).each do |i|
-  # min = [] で min.min すると LTE
-  min = Float::INFINITY
-  k = i - K
+(N - 1).times do |i|
+  n_min = INF
+  k = i + 1 - K
   k = 0 if k < 0
-  k.upto(i - 1) do |j|
-    s = (h_list[i] - h_list[j]).abs + dp[j]
-    min = min < s ? min : s
+  k.upto(i) do |j|
+    n = (h_list[i + 1] - h_list[j]).abs + dp[j]
+    n_min = min(n_min, n)
   end
-  dp[i] = min
+  dp[i + 1] = n_min
 end
-
 puts dp.last
-
-# LTEになる
-# INF = 10**12
-# dp = Array.new(N, Float::INFINITY)
-# dp[0] = 0
-# 
-# (N-1).times do |i|
-#   k = K < N - i - 1 ? K : N - i - 1
-#   1.upto(k).each do |j|
-#     s1 = dp[i] + (h_list[i] - h_list[i + j]).abs
-#     # dp[i + k] = [dp[i + k], s1].min 
-#     dp[i + j] = dp[i + j] < s1 ? dp[i + j] : s1
-#   end
-# end
-# puts dp.last

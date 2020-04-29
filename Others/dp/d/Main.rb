@@ -21,16 +21,18 @@ N.times do
   wv_list.push gets_i_list
 end
 
-dp = Array.new(N + 1).map{Array.new(W + 1, 0)}
+dp = Array.new(W)
+dp[0] = 0
 
-N.times do |i|
-  1.upto(W) do |w_sum|
-    # i 番目の品物を選ぶ場合
-    if w_sum >= wv_list[i][0]
-      dp[i+1][w_sum] = max(dp[i+1][w_sum], dp[i][w_sum - wv_list[i][0]] + wv_list[i][1])
+wv_list.each do |w, v|
+  next_dp = dp.dup
+  dp.each_with_index do |e, i|
+    if !e.nil? && i + w <= W
+      next_v = dp[i].to_i + v
+      next_dp[i + w] = max(dp[i + w].to_i, next_v)
     end
-    # i 番目の品物を選ばない場合
-    dp[i+1][w_sum] = max(dp[i+1][w_sum], dp[i][w_sum])
   end
+  dp = next_dp
 end
-puts dp[N][W]
+pp dp
+puts dp.compact.max
