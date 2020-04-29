@@ -9,13 +9,18 @@ N = 100
 dp = Array.new(N + 1).map{Array.new(3,0)}
 
 def min(a, b)
-  a, b = a.to_i, b.to_i
   return a < b ? a : b
 end
 
 def max(a, b)
-  a, b = a.to_i, b.to_i
   return a > b ? a : b
+end
+
+require 'benchmark'
+Benchmark.bm do |r|
+  r.report "title" do
+    # (計測したい処理)
+  end
 end
 
 # 最大公約数
