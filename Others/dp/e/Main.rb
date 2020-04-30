@@ -1,65 +1,52 @@
 require 'pp'
 
-# 入力値を数値で返却する
-def gets_i()
-  gets.chomp.to_i
-end
-
 # 空白区切の入力値を数値の配列で返却する
 def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
 
-# Nと空白区切の入力値を数値の配列で返却する
-def gets_n_and_i_list()
-  return gets.chomp.to_i, gets.chomp.split(" ").map(&:to_i)
+N, W = gets_i_list
+wv_list = []
+N.times do
+  wv_list.push gets_i_list
 end
+wv_list.sort!{|x,y| x[0]<=>y[0]}
+INF = Float::INFINITY
 
-# 入力値を文字列で返却する
-def gets_s()
-  gets.chomp
-end
+# dpをhashで管理する。 {最大価値 => 容量}
+# w <= 10**9, v <= 10**3 なので v をkeyにする
+# w を key にすると LTE
+dp = Hash.new(INF)
+dp[0] = 0
 
-# 入力値を文字の配列で返却する
-def gets_nsp_list()
-  gets.chomp.split("")
-end
-
-# 空白区切の入力を文字列の配列で返す
-def get_s_list()
-  gets.chomp.split(" ")
-end
-
-# 空白区切の入力を数値(実数)の配列で返却する
-def gets_f_list()
-  gets.chomp.split(" ").map(&:to_f)
-end
-
-# Yes or Noを返却する
-def yes_no(bool, y = "Yes", n = "No")
-  bool ? y : n
-end
-
-# n件読み込んだ結果を数値の配列で返却する
-def gets_n_i_list
-  n = gets.chomp.to_i
-  array = []
-  n.times do
-    array.push(gets.chomp.to_i)
+wv_list.each do |w, v|
+  # ループで更新した値を参照してしまうため、dupする
+  dp.dup.each do |dpv, dpw|
+    nw = dpw + w
+    nv = dpv + v
+    # 容量を超えた場合は next
+    next if nw > W
+    # 同じ価値で重さが軽ければ更新
+    dp[nv] = nw if dp[nv] > nw
   end
-  return n, array
 end
+puts dp.keys.max
 
-# サイズが H, W の数値の2次元配列を返却する
-def gets_HW_int
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.split.map(&:to_i) }
-  return h, w, board
-end
-
-# サイズが H, W の文字の2次元配列を返却する
-def gets_HW_char
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.chomp.chars }
-  return h, w, board
-end
+# # dpをhashで管理する。 {容量 => 最大価値}
+# w <= 10**9, v <= 10**3 なので w を key にすると LTE
+# dp = Hash.new(0)
+# dp[0] = 0
+#
+# wv_list.each do |w, v|
+#   # ループで更新した値を参照してしまうため、dupする
+#   # (計測したい処理)
+#   dp.dup.each do |dpw, dpv|
+#     nw = dpw + w
+#     nv = dpv + v
+#     # 容量を超えた場合は next
+#     next if nw > W
+#     # 同じ重さで価値が大きければ更新
+#     dp[nw] = nv if dp[nw] < nv
+#   end
+# end
+# puts dp.values.max
