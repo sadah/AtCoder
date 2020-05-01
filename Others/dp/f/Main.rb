@@ -1,65 +1,39 @@
 require 'pp'
 
-# 入力値を数値で返却する
-def gets_i()
-  gets.chomp.to_i
-end
-
-# 空白区切の入力値を数値の配列で返却する
-def gets_i_list()
-  gets.chomp.split(" ").map(&:to_i)
-end
-
-# Nと空白区切の入力値を数値の配列で返却する
-def gets_n_and_i_list()
-  return gets.chomp.to_i, gets.chomp.split(" ").map(&:to_i)
-end
-
 # 入力値を文字列で返却する
 def gets_s()
   gets.chomp
 end
 
-# 入力値を文字の配列で返却する
-def gets_nsp_list()
-  gets.chomp.split("")
+def max(a, b)
+  return a > b ? a : b
 end
 
-# 空白区切の入力を文字列の配列で返す
-def get_s_list()
-  gets.chomp.split(" ")
-end
+s, t = gets_s, gets_s
 
-# 空白区切の入力を数値(実数)の配列で返却する
-def gets_f_list()
-  gets.chomp.split(" ").map(&:to_f)
-end
-
-# Yes or Noを返却する
-def yes_no(bool, y = "Yes", n = "No")
-  bool ? y : n
-end
-
-# n件読み込んだ結果を数値の配列で返却する
-def gets_n_i_list
-  n = gets.chomp.to_i
-  array = []
-  n.times do
-    array.push(gets.chomp.to_i)
+dp = Array.new(s.size + 1){Array.new(t.size + 1, 0)}
+s.size.times do |i|
+  t.size.times do |j|
+    if s[i] == t[j]
+      dp[i+1][j+1] = max(dp[i+1][j+1], dp[i][j] + 1)
+    end
+    dp[i+1][j+1] = max(dp[i+1][j+1], dp[i+1][j])
+    dp[i+1][j+1] = max(dp[i+1][j+1], dp[i][j+1])
   end
-  return n, array
 end
 
-# サイズが H, W の数値の2次元配列を返却する
-def gets_HW_int
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.split.map(&:to_i) }
-  return h, w, board
+res = ""
+i = s.size
+j = t.size
+while i > 0 && j > 0 do
+  if dp[i][j] == dp[i-1][j]
+    i -= 1
+  elsif dp[i][j] == dp[i][j-1]
+    j -= 1
+  else
+    res = s[i-1] + res;
+    i -= 1
+    j -= 1
+  end
 end
-
-# サイズが H, W の文字の2次元配列を返却する
-def gets_HW_char
-  h, w = gets.split.map(&:to_i)
-  board = h.times.map { gets.chomp.chars }
-  return h, w, board
-end
+puts res
