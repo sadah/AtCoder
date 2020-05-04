@@ -1,4 +1,3 @@
-
 # sumの追加
 class Array
   define_method(:sum){self.inject(:+)} unless method_defined?(:sum)
@@ -8,14 +7,17 @@ end
 N = 100
 dp = Array.new(N + 1).map{Array.new(3,0)}
 
+# [a, b].min が遅いので
 def min(a, b)
   return a < b ? a : b
 end
 
+# [a, b].max が遅いので
 def max(a, b)
   return a > b ? a : b
 end
 
+# 浮動小数点数のフォーマット
 ans = 10.to_f
 puts sprintf("%10.9f", ans)
 
@@ -104,4 +106,56 @@ H.times do |i|
     end
     # c[i][j] の処理
   end
+end
+
+# 有向グラフ
+# { 0 => [0,1,2,3,4,], 1 => [0,1,2,3,4,], ...}
+def createDirectedGraph(from_to_list)
+  graph = Hash.new{[]}
+  from_to_list.each do |from, to|
+    to_list = graph[from]
+    to_list.push(to)
+    graph[from] = to_list.sort
+  end
+  graph
+end
+
+# 有向グラフ
+# { 0 => [0,1,2,3,4,], 1 => [0,1,2,3,4,], ...}
+def createUndirectedGraph(from_list, to_list)
+  edges = (0...from_list.size).map{|i| [from_list[i], to_list[i]] }
+  graph = Hash.new{[]}
+  edges.each do |from, to|
+    to_list = graph[from]
+    to_list.push(to)
+    graph[from] = to_list.sort
+  end
+  graph
+end
+
+# 無向グラフ
+# { 0 => [0,1,2,3,4,], 1 => [0,1,2,3,4,], ...}
+def createUndirectedGraph(from_to_list)
+  graph = Hash.new{[]}
+  from_to_list.each do |from, to|
+    a = graph[from]
+    b = graph[to]
+    graph[from] = a.push(to).uniq.sort
+    graph[to]   = b.push(from).uniq.sort
+  end
+  graph
+end
+
+# 無向グラフ
+# { 0 => [0,1,2,3,4,], 1 => [0,1,2,3,4,], ...}
+def createGraph(from_list, to_list)
+  edges = (0...from_list.size).map{|i| [from_list[i], to_list[i]] }
+  graph = Hash.new{[]}
+  edges.each do |from, to|
+    a = graph[from]
+    b = graph[to]
+    graph[from] = a.push(to).uniq.sort
+    graph[to]   = b.push(from).uniq.sort
+  end
+  graph
 end
