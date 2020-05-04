@@ -4,21 +4,26 @@ require 'pp'
 def gets_i()
   gets.chomp.to_i
 end
+# N = gets_i
 
 # 空白区切の入力値を数値の配列で返却する
 def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
+# N, M = gets_i_list
+# list = gets_i_list
 
 # Nと空白区切の入力値を数値の配列で返却する
 def gets_n_and_i_list()
   return gets.chomp.to_i, gets.chomp.split(" ").map(&:to_i)
 end
+# N, a_list = gets_n_and_i_list
 
 # 入力値を文字列で返却する
 def gets_s()
   gets.chomp
 end
+# S = gets_s
 
 # 入力値を文字の配列で返却する
 def gets_nsp_list()
@@ -56,6 +61,7 @@ def gets_HW_int
   board = h.times.map { gets.split.map(&:to_i) }
   return h, w, board
 end
+# H, W, board = gets_HW_int
 
 # サイズが H, W の文字の2次元配列を返却する
 def gets_HW_char
@@ -63,3 +69,4 @@ def gets_HW_char
   board = h.times.map { gets.chomp.chars }
   return h, w, board
 end
+# H, W, board = gets_HW_int
