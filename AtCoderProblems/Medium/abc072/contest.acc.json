@@ -32,7 +32,12 @@
       "id": "arc082_b",
       "label": "D",
       "title": "Derangement",
-      "url": "https://atcoder.jp/contests/abc072/tasks/arc082_b"
+      "url": "https://atcoder.jp/contests/abc072/tasks/arc082_b",
+      "directory": {
+        "path": "d",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     }
   ]
 }
