@@ -16,6 +16,9 @@ def max(a, b)
   return a > b ? a : b
 end
 
+ans = 10.to_f
+puts sprintf("%10.9f", ans)
+
 require 'benchmark'
 Benchmark.bm do |r|
   r.report "title" do
