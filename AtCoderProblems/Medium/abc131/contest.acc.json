@@ -32,7 +32,12 @@
       "id": "abc131_d",
       "label": "D",
       "title": "Megalomania",
-      "url": "https://atcoder.jp/contests/abc131/tasks/abc131_d"
+      "url": "https://atcoder.jp/contests/abc131/tasks/abc131_d",
+      "directory": {
+        "path": "d",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "abc131_e",
