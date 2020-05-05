@@ -6,14 +6,22 @@ def gets_i()
 end
 
 x = gets_i
+a_list = [s]
 
-require 'prime'
-
-while true
-  if x.prime?
-    puts x
+i = 1
+while true do
+  ans = 0
+  n   = a_list[i-1]
+  if n.even?
+    ans = n /2
+  else
+    ans = 3 * n + 1
+  end
+  if a_list.include?(ans)
+    puts i + 1
     exit
   else
-    x += 1
+    a_list[i] = ans
+    i += 1
   end
 end
