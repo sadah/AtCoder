@@ -26,7 +26,12 @@
       "id": "arc087_a",
       "label": "C",
       "title": "Good Sequence",
-      "url": "https://atcoder.jp/contests/abc082/tasks/arc087_a"
+      "url": "https://atcoder.jp/contests/abc082/tasks/arc087_a",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "arc087_b",
