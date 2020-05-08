@@ -69,4 +69,4 @@ def gets_HW_char
   board = h.times.map { gets.chomp.chars }
   return h, w, board
 end
-# H, W, board = gets_HW_int
+# H, W, board = gets_HW_char
