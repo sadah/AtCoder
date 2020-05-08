@@ -41,6 +41,14 @@ def gets_f_list()
   gets.chomp.split(" ").map(&:to_f)
 end
 
+# 空白区切の入力値をBigDecimalの配列で返却する
+require 'bigdecimal'
+require 'bigdecimal/util'
+def gets_d_list()
+  gets.chomp.split(" ").map(&:to_d)
+end
+
+
 # Yes or Noを返却する
 def yes_no(bool, y = "Yes", n = "No")
   bool ? y : n
