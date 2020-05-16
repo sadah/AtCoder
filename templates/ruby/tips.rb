@@ -49,8 +49,18 @@ end
 
 # https://qiita.com/rtoya/items/6d248b0817acd399603b
 # 階乗
-def factorial(number)
-  (1..number).inject(1,:*)
+def simple_factorial(number)
+  (1..number).inject(&:*)
+end
+
+# https://qiita.com/jkr_2255/items/95a0c0a573baa1578121
+# 階乗
+def factorial(n)
+  arr = [*1..n]
+  loop do
+    return arr[0] if arr.length == 1
+    arr = arr.each_slice(2).map { |a, b| b ? a * b : a }
+  end
 end
 
 # 配列に出現する数値をグループ化
