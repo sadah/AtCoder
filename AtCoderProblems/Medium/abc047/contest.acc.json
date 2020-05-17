@@ -26,7 +26,12 @@
       "id": "arc063_a",
       "label": "C",
       "title": "1D Reversi",
-      "url": "https://atcoder.jp/contests/abc047/tasks/arc063_a"
+      "url": "https://atcoder.jp/contests/abc047/tasks/arc063_a",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "arc063_b",
