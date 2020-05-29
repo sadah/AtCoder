@@ -1,6 +1,6 @@
 # sumの追加
 class Array
-  define_method(:sum){self.inject(:+)} unless method_defined?(:sum)
+  define_method(:sum){self.inject(:+).to_i} unless method_defined?(:sum)
 end
 
 # 多次元配列の初期化
