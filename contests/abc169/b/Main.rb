@@ -8,18 +8,13 @@ end
 N, a_list = gets_n_and_i_list
 
 a_list.sort!
-
-def xxx(arr)
-  loop do
-    return arr[0] if arr.length == 1
-    arr = arr.each_slice(2).map { |a, b| b ? a * b : a }
+total = 0
+loop do
+  if arr.length == 1
+    total = arr[0]
+    break
   end
+  arr = arr.each_slice(2).map { |a, b| b ? a * b : a }
 end
 
-total = xxx(a_list)
-
-if total > 10**18
-  puts -1
-else
-  puts total
-end
+puts total > 10**18 ? -1 : total
