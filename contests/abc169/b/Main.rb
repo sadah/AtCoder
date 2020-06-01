@@ -10,11 +10,11 @@ N, a_list = gets_n_and_i_list
 a_list.sort!
 total = 0
 loop do
-  if arr.length == 1
-    total = arr[0]
+  if a_list.length == 1
+    total = a_list[0]
     break
   end
-  arr = arr.each_slice(2).map { |a, b| b ? a * b : a }
+  a_list = a_list.each_slice(2).map { |a, b| b ? a * b : a }
 end
 
 puts total > 10**18 ? -1 : total
