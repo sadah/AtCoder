@@ -47,6 +47,10 @@ p 6.gcdlcm(8) #=> [2, 24]
 # 順序あり 重複あり
 [].repeated_permutation(2).to_a
 
+# 順序あり 重複あり
+# スイッチなど [0, 1] を取る要素が３つ並んでいる場合の全列挙
+[0,1].repeated_permutation(3).to_a
+
 # https://qiita.com/jkr_2255/items/3c9bc8273da818a39810
 # 組み合わせの総数
 # n個から、k個を取り出す場合の総数
