@@ -12,10 +12,7 @@ factors = Prime.prime_division(P)
 
 max = 1
 factors.each do |num, count|
-  pow = count / N
-  if pow > 0
-    max *= num ** pow
-  end
+  max *= num ** (count / N)
 end
 
 puts max
