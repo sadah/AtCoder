@@ -3,6 +3,11 @@ class Array
   define_method(:sum){self.inject(:+).to_i} unless method_defined?(:sum)
 end
 
+# tallyの追加
+class Array
+  define_method(:tally){self.group_by(&:itself).map{|k,v| [k, v.count] }.to_h} unless method_defined?(:tally)
+end
+
 # 多次元配列の初期化
 N = 100
 dp = Array.new(N + 1).map{Array.new(3,0)}
