@@ -24,6 +24,7 @@ Setup template
 
 ```
 ln -s ./tempaltes/ruby ~/Library/Preferences/atcoder-cli-nodejs/ruby
+ln -s ./tempaltes/go ~/Library/Preferences/atcoder-cli-nodejs/go
 ```
 
 Check atcoder-cli directory
