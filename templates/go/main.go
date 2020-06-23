@@ -4,8 +4,11 @@ import (
 	"fmt"
 )
 
+func int2() (int, int) {
+	var x, y int
+	fmt.Scan(&x, &y)
+	return x, y
+}
+
 func main() {
-	var a int
-	fmt.Scan(&a)
-	fmt.Printf("%d\n", a)
 }

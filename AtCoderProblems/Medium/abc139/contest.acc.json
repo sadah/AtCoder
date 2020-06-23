@@ -15,7 +15,12 @@
       "id": "abc139_b",
       "label": "B",
       "title": "Power Socket",
-      "url": "https://atcoder.jp/contests/abc139/tasks/abc139_b"
+      "url": "https://atcoder.jp/contests/abc139/tasks/abc139_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "abc139_c",
