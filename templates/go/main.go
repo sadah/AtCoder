@@ -8,10 +8,28 @@ import (
 func main() {
 }
 
-func int2() (int, int) {
+func Str1() string {
+	var s string
+	fmt.Scan(&s)
+	return s
+}
+
+func Int1() int {
+	var x int
+	fmt.Scan(&x)
+	return x
+}
+
+func Int2() (int, int) {
 	var x, y int
 	fmt.Scan(&x, &y)
 	return x, y
+}
+
+func Int3() (int, int, int) {
+	var x, y, z int
+	fmt.Scan(&x, &y, &z)
+	return x, y, z
 }
 
 func IntSlice(n int) []int {
