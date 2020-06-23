@@ -23,7 +23,7 @@ func main() {
 
 func IntSlice(n int) []int {
 	slice := make([]int, n)
-	for i := 0; i < n; i++ {
+	for i := range slice {
 		fmt.Scan(&slice[i])
 	}
 	return slice
@@ -31,7 +31,7 @@ func IntSlice(n int) []int {
 
 func SumSlice(slice []int) int {
 	total := 0
-	for i := 0; i < len(slice); i++ {
+	for i := range slice {
 		total += slice[i]
 	}
 	return total
