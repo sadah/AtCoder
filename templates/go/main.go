@@ -51,9 +51,8 @@ func sliceSum(slice []int) int {
 func min(x, y int) int {
 	if x > y {
 		return y
-	} else {
-		return x
 	}
+	return x
 }
 
 func powInt(x, pow int) int {
