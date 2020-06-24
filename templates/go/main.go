@@ -8,31 +8,31 @@ import (
 func main() {
 }
 
-func Str1() string {
+func str1() string {
 	var s string
 	fmt.Scan(&s)
 	return s
 }
 
-func Int1() int {
+func int1() int {
 	var x int
 	fmt.Scan(&x)
 	return x
 }
 
-func Int2() (int, int) {
+func int2() (int, int) {
 	var x, y int
 	fmt.Scan(&x, &y)
 	return x, y
 }
 
-func Int3() (int, int, int) {
+func int3() (int, int, int) {
 	var x, y, z int
 	fmt.Scan(&x, &y, &z)
 	return x, y, z
 }
 
-func IntSlice(n int) []int {
+func sliceInt(n int) []int {
 	slice := make([]int, n)
 	for i := range slice {
 		fmt.Scan(&slice[i])
@@ -40,7 +40,7 @@ func IntSlice(n int) []int {
 	return slice
 }
 
-func SumSlice(slice []int) int {
+func sliceSum(slice []int) int {
 	total := 0
 	for i := range slice {
 		total += slice[i]
@@ -48,7 +48,7 @@ func SumSlice(slice []int) int {
 	return total
 }
 
-func Min(x, y int) int {
+func min(x, y int) int {
 	if x > y {
 		return y
 	} else {
@@ -56,6 +56,6 @@ func Min(x, y int) int {
 	}
 }
 
-func IntPow(x, pow int) int {
+func powInt(x, pow int) int {
 	return int(math.Pow(float64(x), float64(pow)))
 }
