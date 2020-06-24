@@ -15,7 +15,12 @@
       "id": "panasonic2020_b",
       "label": "B",
       "title": "Bishop",
-      "url": "https://atcoder.jp/contests/panasonic2020/tasks/panasonic2020_b"
+      "url": "https://atcoder.jp/contests/panasonic2020/tasks/panasonic2020_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "panasonic2020_c",
