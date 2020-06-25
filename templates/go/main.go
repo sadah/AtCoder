@@ -8,44 +8,55 @@ import (
 func main() {
 }
 
-func str1() string {
+func scStr() string {
 	var s string
 	fmt.Scan(&s)
 	return s
 }
 
-func int1() int {
+func scInt() int {
 	var x int
 	fmt.Scan(&x)
 	return x
 }
 
-func int2() (int, int) {
+func scInt2() (int, int) {
 	var x, y int
 	fmt.Scan(&x, &y)
 	return x, y
 }
 
-func int3() (int, int, int) {
+func scInt3() (int, int, int) {
 	var x, y, z int
 	fmt.Scan(&x, &y, &z)
 	return x, y, z
 }
 
-func sliceInt(n int) []int {
-	slice := make([]int, n)
+func ints(n int) (slice []int) {
+	slice = make([]int, n)
 	for i := range slice {
 		fmt.Scan(&slice[i])
 	}
 	return slice
 }
 
-func sliceSum(slice []int) int {
-	total := 0
+func sum(slice []int) (sum int) {
+	sum = 0
 	for i := range slice {
-		total += slice[i]
+		sum += slice[i]
 	}
-	return total
+	return
+}
+
+func unique(strs []string) (unique []string) {
+	m := map[string]bool{}
+	for _, v := range strs {
+		if !m[v] {
+			m[v] = true
+			unique = append(unique, v)
+		}
+	}
+	return unique
 }
 
 func min(x, y int) int {
@@ -55,6 +66,6 @@ func min(x, y int) int {
 	return x
 }
 
-func powInt(x, pow int) int {
+func powi(x, pow int) int {
 	return int(math.Pow(float64(x), float64(pow)))
 }
