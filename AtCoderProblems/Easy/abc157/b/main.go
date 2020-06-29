@@ -13,8 +13,37 @@ func main() {
 	n := scInt()
 	blist := ints(n)
 
-	fmt.Println(board)
-	fmt.Println(blist)
+	checkedBoard := [][]bool{{false, false, false}, {false, false, false, false}, {false, false, false}}
+
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			for k := 0; k < n; k++ {
+				if board[i][j] == blist[k] {
+					checkedBoard[i][j] = true
+				}
+			}
+		}
+	}
+	ret := "No"
+
+	if checkedBoard[0][0] && checkedBoard[0][1] && checkedBoard[0][2] {
+		ret = "Yes"
+	} else if checkedBoard[1][0] && checkedBoard[1][1] && checkedBoard[1][2] {
+		ret = "Yes"
+	} else if checkedBoard[2][0] && checkedBoard[2][1] && checkedBoard[2][2] {
+		ret = "Yes"
+	} else if checkedBoard[0][0] && checkedBoard[1][0] && checkedBoard[2][0] {
+		ret = "Yes"
+	} else if checkedBoard[0][1] && checkedBoard[1][1] && checkedBoard[2][1] {
+		ret = "Yes"
+	} else if checkedBoard[0][2] && checkedBoard[1][2] && checkedBoard[2][2] {
+		ret = "Yes"
+	} else if checkedBoard[0][0] && checkedBoard[1][1] && checkedBoard[2][2] {
+		ret = "Yes"
+	} else if checkedBoard[0][2] && checkedBoard[1][1] && checkedBoard[2][0] {
+		ret = "Yes"
+	}
+	fmt.Println(ret)
 }
 
 func scStr() string {
