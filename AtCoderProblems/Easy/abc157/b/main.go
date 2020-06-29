@@ -80,8 +80,8 @@ func ints(n int) (slice []int) {
 
 func sum(slice []int) (sum int) {
 	sum = 0
-	for i := range slice {
-		sum += slice[i]
+	for _, v := range slice {
+		sum += v
 	}
 	return
 }
