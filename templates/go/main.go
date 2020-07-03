@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	// inf := math.MaxInt64
+
 }
 
 func scStr() string {
@@ -32,7 +34,7 @@ func scInt3() (int, int, int) {
 	return x, y, z
 }
 
-func ints(n int) (slice []int) {
+func scInts(n int) (slice []int) {
 	slice = make([]int, n)
 	for i := range slice {
 		fmt.Scan(&slice[i])
@@ -64,6 +66,13 @@ func min(x, y int) int {
 		return y
 	}
 	return x
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }
 
 func powi(x, pow int) int {
