@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
 )
 
 func main() {
@@ -73,6 +74,17 @@ func max(x, y int) int {
 		return x
 	}
 	return y
+}
+
+func minInts(ints []int) int {
+	sort.Ints(ints)
+	return ints[0]
+}
+
+func maxInts(ints []int) int {
+	sort.Ints(ints)
+	n := len(ints)
+	return ints[n-1]
 }
 
 func powi(x, pow int) int {
