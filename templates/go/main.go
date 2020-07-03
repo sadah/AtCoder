@@ -51,7 +51,18 @@ func sum(slice []int) (sum int) {
 	return
 }
 
-func unique(strs []string) (unique []string) {
+func uniqueInts(ints []int) (unique []int) {
+	m := map[int]bool{}
+	for _, v := range ints {
+		if !m[v] {
+			m[v] = true
+			unique = append(unique, v)
+		}
+	}
+	return unique
+}
+
+func uniqueStrs(strs []string) (unique []string) {
 	m := map[string]bool{}
 	for _, v := range strs {
 		if !m[v] {
