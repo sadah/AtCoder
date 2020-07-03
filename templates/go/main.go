@@ -43,6 +43,17 @@ func scInts(n int) (slice []int) {
 	return slice
 }
 
+func hw(h int, w int, init int) [][]int {
+	hw := make([][]int, h)
+	for i := 0; i < h; i++ {
+		hw[i] = make([]int, w)
+		for j := 0; j < w; j++ {
+			hw[i][j] = init
+		}
+	}
+	return hw
+}
+
 func sum(slice []int) (sum int) {
 	sum = 0
 	for i := range slice {
