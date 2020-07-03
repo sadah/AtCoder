@@ -9,7 +9,7 @@ func main() {
 	n, k := scInt2()
 	hlist := ints(n)
 	dp := make([]int, n)
-	inf := 100000
+	inf := math.MaxInt64
 	for i := 0; i < n; i++ {
 		dp[i] = inf
 	}
