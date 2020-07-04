@@ -3,12 +3,21 @@ package main
 import (
 	"fmt"
 	"math"
-	"sort"
 )
 
 func main() {
-	// inf := math.MaxInt64
+	n := scInt()
+	hlist := ints(n)
+	dp := make([]int, n)
+	dp[0] = 0
+	dp[1] = abs(hlist[0] - hlist[1])
 
+	for i := 1; i < n-1; i++ {
+		diff1 := abs(hlist[i+1]-hlist[i]) + dp[i]
+		diff2 := abs(hlist[i+1]-hlist[i-1]) + dp[i-1]
+		dp[i+1] = min(diff1, diff2)
+	}
+	fmt.Println(dp[n-1])
 }
 
 func scStr() string {
@@ -35,23 +44,12 @@ func scInt3() (int, int, int) {
 	return x, y, z
 }
 
-func scInts(n int) (slice []int) {
+func ints(n int) (slice []int) {
 	slice = make([]int, n)
 	for i := range slice {
 		fmt.Scan(&slice[i])
 	}
 	return slice
-}
-
-func hw(h int, w int, init int) [][]int {
-	hw := make([][]int, h)
-	for i := 0; i < h; i++ {
-		hw[i] = make([]int, w)
-		for j := 0; j < w; j++ {
-			hw[i][j] = init
-		}
-	}
-	return hw
 }
 
 func sum(slice []int) (sum int) {
@@ -62,18 +60,7 @@ func sum(slice []int) (sum int) {
 	return
 }
 
-func uniqueInts(ints []int) (unique []int) {
-	m := map[int]bool{}
-	for _, v := range ints {
-		if !m[v] {
-			m[v] = true
-			unique = append(unique, v)
-		}
-	}
-	return unique
-}
-
-func uniqueStrs(strs []string) (unique []string) {
+func unique(strs []string) (unique []string) {
 	m := map[string]bool{}
 	for _, v := range strs {
 		if !m[v] {
@@ -91,24 +78,13 @@ func min(x, y int) int {
 	return x
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func minInts(ints []int) int {
-	sort.Ints(ints)
-	return ints[0]
-}
-
-func maxInts(ints []int) int {
-	sort.Ints(ints)
-	n := len(ints)
-	return ints[n-1]
-}
-
 func powi(x, pow int) int {
 	return int(math.Pow(float64(x), float64(pow)))
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

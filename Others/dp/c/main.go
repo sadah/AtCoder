@@ -7,8 +7,20 @@ import (
 )
 
 func main() {
-	// inf := math.MaxInt64
+	n := scInt()
+	dp := make([][]int, n+1)
 
+	for i := 0; i < n+1; i++ {
+		dp[i] = make([]int, 3)
+	}
+
+	for i := 0; i < n; i++ {
+		a, b, c := scInt3()
+		dp[i+1][0] = max(dp[i][1], dp[i][2]) + a
+		dp[i+1][1] = max(dp[i][0], dp[i][2]) + b
+		dp[i+1][2] = max(dp[i][0], dp[i][1]) + c
+	}
+	fmt.Println(maxInts(dp[n]))
 }
 
 func scStr() string {
@@ -43,17 +55,6 @@ func scInts(n int) (slice []int) {
 	return slice
 }
 
-func hw(h int, w int, init int) [][]int {
-	hw := make([][]int, h)
-	for i := 0; i < h; i++ {
-		hw[i] = make([]int, w)
-		for j := 0; j < w; j++ {
-			hw[i][j] = init
-		}
-	}
-	return hw
-}
-
 func sum(slice []int) (sum int) {
 	sum = 0
 	for i := range slice {
@@ -62,18 +63,7 @@ func sum(slice []int) (sum int) {
 	return
 }
 
-func uniqueInts(ints []int) (unique []int) {
-	m := map[int]bool{}
-	for _, v := range ints {
-		if !m[v] {
-			m[v] = true
-			unique = append(unique, v)
-		}
-	}
-	return unique
-}
-
-func uniqueStrs(strs []string) (unique []string) {
+func unique(strs []string) (unique []string) {
 	m := map[string]bool{}
 	for _, v := range strs {
 		if !m[v] {
