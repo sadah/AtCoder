@@ -8,14 +8,23 @@ import (
 func main() {
 	n := scInt()
 	hlist := ints(n)
+
 	dp := make([]int, n)
+	inf := math.MaxInt64
+
+	// 初期化 (最小化問題なので INF に初期化)
+	for i := 0; i < n; i++ {
+		dp[i] = inf
+	}
+
+	// 初期条件
 	dp[0] = 0
 	dp[1] = abs(hlist[0] - hlist[1])
 
-	for i := 1; i < n-1; i++ {
-		diff1 := abs(hlist[i+1]-hlist[i]) + dp[i]
-		diff2 := abs(hlist[i+1]-hlist[i-1]) + dp[i-1]
-		dp[i+1] = min(diff1, diff2)
+	for i := 2; i < n; i++ {
+		diff1 := dp[i-1] + abs(hlist[i]-hlist[i-1])
+		diff2 := dp[i-2] + abs(hlist[i]-hlist[i-2])
+		dp[i] = min(diff1, diff2)
 	}
 	fmt.Println(dp[n-1])
 }
