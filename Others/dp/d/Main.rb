@@ -5,23 +5,31 @@ def gets_i_list()
   gets.chomp.split(" ").map(&:to_i)
 end
 
-N, W = gets_i_list
-wv_list = []
-N.times do
-  wv_list.push gets_i_list
+def max(a, b)
+  return a > b ? a : b
 end
 
-# 最大容量以下で、容量ごとの価値の最大値を格納する
-dp = Array.new(W + 1, 0)
+n, w = gets_i_list
+wlist, vlist = [], []
 
-wv_list.each do |w, v|
-  # 許容できる容量(wからW)の範囲の価値を更新する
-  # uptoを使うと、ループで更新した値を参照してしまうため、downtoを使う
-  W.downto(w) do |i|
-    # 現在の値(dp[i])より、　itemを追加した場合の価値(dp[i - w] + v)が大きければ更新する
-    if dp[i] < dp[i - w] + v
-      dp[i] = dp[i - w] + v 
+n.times do |i|
+  wlist[i], vlist[i] = gets_i_list
+end
+
+# DPテーブルの初期化
+# dp[i][sumW] := i-1 番目までの品物から重さが sumW を
+# 超えないように選んだときの、価値の総和の最大値
+dp = Array.new(n + 1).map{ Array.new(w + 1, 0) }
+
+# このままだとTLEする
+0.upto(n-1) do |i|
+  0.upto(w) do |sumW|
+    if sumW - wlist[i] >= 0
+      nv = dp[i][sumW - wlist[i]] + vlist[i]
+      dp[i+1][sumW] = max(dp[i+1][sumW], nv)
     end
+    dp[i+1][sumW] = max(dp[i+1][sumW], dp[i][sumW])
   end
 end
-puts dp.max
+
+puts dp.last.last
