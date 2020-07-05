@@ -12,7 +12,10 @@ end
 n, hlist = gets_n_and_i_list
 INF = Float::INFINITY
 
+# DP 配列全体を「DP の種類に応じた初期値」で初期化
 dp = Array.new(n, INF)
+
+# 初期条件を入力
 dp[0] = 0
 
 # 配るDP
