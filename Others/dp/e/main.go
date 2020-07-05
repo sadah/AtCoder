@@ -18,10 +18,11 @@ func main() {
 	// vi <= 10**3, N<=100なので 100001 あれば十分
 	// 重さの最小を求めるので、infで初期化する
 	dp := make([][]int, n+1)
+	// MaxInt64にすると、このあとの加算でオーバーフローする…
 	inf := math.MaxInt32
 	maxV := 100001
 	for i := 0; i < n+1; i++ {
-		// 重さの範囲内でテーブルを作る
+		// 価値の範囲内でテーブルを作る
 		values := make([]int, maxV)
 		for j := 0; j < maxV; j++ {
 			values[j] = inf
