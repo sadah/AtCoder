@@ -26,7 +26,12 @@
       "id": "sumitb2019_c",
       "label": "C",
       "title": "100 to 105",
-      "url": "https://atcoder.jp/contests/sumitrust2019/tasks/sumitb2019_c"
+      "url": "https://atcoder.jp/contests/sumitrust2019/tasks/sumitb2019_c",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "sumitb2019_d",
