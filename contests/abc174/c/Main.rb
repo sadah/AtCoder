@@ -12,7 +12,15 @@ if k.even?
   exit
 end
 
-if k.to_s.chars.uniq == ["7"]
-  puts k.to_s.chars.size
-  exit
+num = 0
+
+1.upto(k) do |i|
+  num = num * 10 + 7
+  num %= k
+  if num == 0
+    puts i
+    exit
+  end
 end
+
+puts "-1"
