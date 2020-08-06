@@ -93,6 +93,7 @@ p a_list.group_by(&:itself)
 # {1=>3, 2=>1, 3=>2}
 a_list =[]
 p a_list.group_by(&:itself).map{|k,v| [k, v.count] }.to_h
+p a_list.tally
 
 # hashから最大値を持つk,vを返却
 {}.max_by{|k,v| v }
