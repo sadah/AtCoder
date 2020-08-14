@@ -12,6 +12,11 @@ end
 N = 100
 dp = Array.new(N + 1).map{Array.new(3,0)}
 
+# INF
+INF = Float::INFINITY
+
+
+
 # [a, b].min が遅いので
 def min(a, b)
   return a < b ? a : b
