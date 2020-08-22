@@ -15,7 +15,12 @@
       "id": "abc100_b",
       "label": "B",
       "title": "Ringo's Favorite Numbers",
-      "url": "https://atcoder.jp/contests/abc100/tasks/abc100_b"
+      "url": "https://atcoder.jp/contests/abc100/tasks/abc100_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "abc100_c",
