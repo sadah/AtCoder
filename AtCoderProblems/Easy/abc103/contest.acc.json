@@ -26,7 +26,12 @@
       "id": "abc103_c",
       "label": "C",
       "title": "Modulo Summation",
-      "url": "https://atcoder.jp/contests/abc103/tasks/abc103_c"
+      "url": "https://atcoder.jp/contests/abc103/tasks/abc103_c",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "abc103_d",
