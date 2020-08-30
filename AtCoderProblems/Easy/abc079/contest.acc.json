@@ -26,7 +26,12 @@
       "id": "abc079_c",
       "label": "C",
       "title": "Train Ticket",
-      "url": "https://atcoder.jp/contests/abc079/tasks/abc079_c"
+      "url": "https://atcoder.jp/contests/abc079/tasks/abc079_c",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "abc079_d",
