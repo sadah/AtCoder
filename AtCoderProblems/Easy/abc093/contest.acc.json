@@ -26,7 +26,12 @@
       "id": "arc094_a",
       "label": "C",
       "title": "Same Integers",
-      "url": "https://atcoder.jp/contests/abc093/tasks/arc094_a"
+      "url": "https://atcoder.jp/contests/abc093/tasks/arc094_a",
+      "directory": {
+        "path": "c",
+        "testdir": "tests",
+        "submit": "Main.rb"
+      }
     },
     {
       "id": "arc094_b",
